@@ -66,7 +66,7 @@ public class AllRecursive {
             } catch (InputMismatchException as) {              // If user enters invalid input rerun menu
                menu(choice);
             }
-            if (iNum < 1 && iNum > 12) {
+            if (iNum < 1 && iNum > 12) {                       // Validate iNum 1-12 inclusively
                System.out.println("Invalid Entry: The server is connected to a potato please keep numbers between 1 and 12 inclusively");
                try {
                   iNum = scan.nextInt();
@@ -74,7 +74,7 @@ public class AllRecursive {
                   menu(choice);
                }
             } else {
-               decrease(iNum);
+               decrease(iNum);                                 // Run decrease, reset choice, and rerun menu
                choice = -1;
                menu(choice);
             }
@@ -83,36 +83,39 @@ public class AllRecursive {
             int iNum = 0;
             try {
                iNum = scan.nextInt();
-            } catch (InputMismatchException as) {
+            } catch (InputMismatchException as) {              // If user enters invalid input rerun menu
                menu(choice);
             }
-            if (iNum < 1 && iNum > 12) {
+            if (iNum < 1 && iNum > 12) {                       // Validate iNum 1-12 inclusively
                System.out.println("Invalid Entry: The server is connected to a potato please keep numbers between 1 and 12 inclusively");
                try {
                   iNum = scan.nextInt();
-               } catch (InputMismatchException as ) {
+               } catch (InputMismatchException as ) {          // If user enters invalid input rerun menu
                   menu(choice);
                }
             } else {
-               System.out.println(accumulation(iNum));
+               System.out.println(accumulation(iNum));         // Run and print accumulation, reset choice, and rerun menu
                choice = -1;
                menu(choice);
             }
-         }else {
+         }else {                                               // If user enters 0 unplug potato
             System.out.println("Goodbye");
             return;
          }
       }
    }
 
-   public static void invTriangle(int n) {
+   //---------------------------------------------------------------------------------------------------
+   //  Levels/invTriangle: Takes an int from user and prints an inverted triangle with that many levels
+   //---------------------------------------------------------------------------------------------------
+   public static void invTriangle(int n) {                     // Method for number of * per level
       if (n == 0)
          return;
       System.out.print("* ");
       invTriangle(n - 1);
    }
 
-   public static void levels(int n) {
+   public static void levels(int n) {                          // Method for levels of * in triangle
       if (n == 0)
          return;
       invTriangle(n);
@@ -120,6 +123,9 @@ public class AllRecursive {
       levels(n - 1);
    }
 
+   //---------------------------------------------------------------------------------------------------
+   //  Decrease: Takes an int from user and prints the number and every int in descending order until 0
+   //---------------------------------------------------------------------------------------------------
    public static int decrease(int n) {
       int result = n;
       if (n < 0) {
@@ -131,6 +137,9 @@ public class AllRecursive {
       }
     }
 
+   //----------------------------------------------------------------------------------
+   //  Accumulation: Takes n from user and adds all the ints between 1 and n inclusive
+   //----------------------------------------------------------------------------------
    public static int accumulation(int n) { 
       int result;   
       if (n == 0) {
